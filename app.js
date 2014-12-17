@@ -2,31 +2,32 @@ var express = require('express');
 
 var app = express();
 
+var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
+
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+
 app.set('port', process.env.PORT || 3000);
 
 app.get('/', function ( req, res ) {
-  res.type('text/html');
-  res.send('<h1>Meadowlark Travel site.</h1>');
+  res.render('home');
 });
 
 app.get('/about', function ( req, res ) {
-  res.type('text/html');
-  res.send('<h1>Meadowlark Travel site. About page</h1>');
+  res.render('about');
 });
 
 // custom 404 page
 app.use(function ( req, res ) {
-  res.type('text/html');
   res.status(404);
-  res.send('<h1>404 - Not Found</h1>');
+  res.render('404');
 });
 
 //custom 500 page
 app.use(function ( err, req, res, next ) {
   console.error(err.stack);
-  res.type('text/html');
   res.status(500);
-  res.send('<h1>500 - Internal Server Error</h1>');
+  res.render('500');
 });
 
 app.listen(app.get('port'), function () {

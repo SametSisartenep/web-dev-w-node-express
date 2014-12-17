@@ -1,0 +1,17 @@
+{
+  "name": "web-dev-w-node-express",
+  "version": "0.0.1",
+  "description": "Meadow Travel site. From the book \"Node & Express Web Dev\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Rodrigo González López",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.10.6"
+  }
+}

@@ -3,9 +3,9 @@ html {
 }
 body {
   background-color: #1251D9;
+  color: #FFF;
 }
 h1 {
-  color: #FFF;
   font-family: sans-serif;
 }
 p {
@@ -14,4 +14,8 @@ p {
 img {
   width: 200px;
   height: 200px;
+}
+span {
+  font-family: verdana;
+  font-size: 48px;
 }

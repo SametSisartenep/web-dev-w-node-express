@@ -1,5 +1,4 @@
-var express = require('express'),
-  morgan = require('morgan');
+var express = require('express');
 
 var app = express();
 
@@ -8,8 +7,6 @@ var fortune = require('./lib/fortune');
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-
-app.use(morgan('dev'));
 
 app.set('port', process.env.PORT || 3000);
 

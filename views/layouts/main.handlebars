@@ -25,7 +25,7 @@
     </script>
     <script src="/qa/tests-global.js"></script>
     {{#if pageTestScript }}
-      <script src="pageTestScript"></script>
+      <script src="{{ pageTestScript }}"></script>
     {{/if}}
     <script>mocha.run();</script>
   {{/if}}

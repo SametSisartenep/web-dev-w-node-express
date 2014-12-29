@@ -3,7 +3,11 @@
   <head>
     <meta charset='utf-8' />
     <title>Meadowlark Travel</title>
+    {{#if showTests }}
+      <link rel="stylesheet" type="text/css" href="/vendor/mocha.css">
+    {{/if}}
     <link rel='stylesheet' type='text/css' href='/styles/main.css' />
+    <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
   </head>
   <body>
     <header>
@@ -11,4 +15,18 @@
     </header>
     {{{ body }}}
   </body>
+  {{#if showTests }}
+    <div id="mocha"></div>
+    <script src="/vendor/mocha.js"></script>
+    <script src="/vendor/chai.js"></script>
+    <script>
+      mocha.ui('tdd');
+      var assert = chai.assert;
+    </script>
+    <script src="/qa/tests-global.js"></script>
+    {{#if pageTestScript }}
+      <script src="pageTestScript"></script>
+    {{/if}}
+    <script>mocha.run();</script>
+  {{/if}}
 </html>

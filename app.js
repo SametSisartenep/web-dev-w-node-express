@@ -44,13 +44,15 @@ app.get('/tours/request-group-rate', function ( req, res ) {
 app.use(express.static(__dirname + '/public'));
 
 // Request Header information
-app.get('/header', function ( req, res ) {
-  res.set('Content-Type', 'text/plain');
-  var s = '';
+app.get('/headers', function ( req, res ) {
+  res.set('Content-Type', 'text/html');
+  var s = [];
   for (var name in req.headers) {
-    s += name + ': ' + req.headers[name] + '\n';
+    s.push(name + ': ' + req.headers[name] + '\n');
   }
-  res.send(s);
+  res.render('headers', {
+    headers: s
+  });
 });
 
 // custom 404 page

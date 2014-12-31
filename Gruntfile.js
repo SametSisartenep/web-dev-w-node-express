@@ -2,8 +2,8 @@ module.exports = function ( grunt ) {
   // load plugins
   [
     'grunt-cafe-mocha',
-    'grunt-contrib-jshint',
-    'grunt-exec'
+    'grunt-contrib-jshint'/*,
+    'grunt-exec'*/
   ].forEach(function ( task ) {
     grunt.loadNpmTasks(task);
   });
@@ -23,5 +23,5 @@ module.exports = function ( grunt ) {
   });
 
   // register tasks
-  grunt.registerTask('default', ['cafemocha', 'jshint', 'exec']);
+  grunt.registerTask('default', ['cafemocha', 'jshint'/*, 'exec'*/]);
 };

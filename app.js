@@ -55,6 +55,11 @@ app.get('/headers', function ( req, res ) {
   });
 });
 
+app.get('/foo', function ( req, res ) {
+  //res.render('foo', { layout: null });
+  res.render('foo', { layout: 'microsite' });
+});
+
 // custom 404 page
 app.use(function ( req, res ) {
   res.status(404);

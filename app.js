@@ -81,6 +81,10 @@ app.get('/foo', function ( req, res ) {
   res.render('foo', { layout: 'microsite' });
 });
 
+app.get('/jquery-test', function ( req, res ) {
+  res.render('jquery-test', { layout: 'test' });
+});
+
 // custom 404 page
 app.use(function ( req, res ) {
   res.status(404);

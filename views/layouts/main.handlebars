@@ -6,12 +6,18 @@
     {{#if showTests }}
       <link rel="stylesheet" type="text/css" href="/vendor/mocha.css">
     {{/if}}
-    <link rel='stylesheet' type='text/css' href='/styles/main.css' />
+    <style>
+      img#logo {
+        width: 15em;
+        height: 15em;
+      }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
   </head>
   <body>
     <header>
-      <img src="/img/logo.png" alt="Meadowlark Travel logo" />
+      <img src="/img/logo.png" id="logo" alt="Meadowlark Travel logo" />
     </header>
     {{{ body }}}
   </body>

@@ -19,6 +19,7 @@ var handlebars = require('express-handlebars').create({
 
 var fortune = require('./lib/fortune');
 var weather = require('./lib/weather');
+var credentials = require('./credentials');
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -50,6 +51,13 @@ app.use(function ( req, res, next ) {
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.use(require('cookie-parser')(credentials.cookieSecret));
+
+app.use(function ( req, res, next ) {
+  res.cookie('monster', 'nom nom');
+  res.cookie('signed_monster', 'nom nom', { signed: true });
+});
 
 // Routes
 app.get('/', function ( req, res ) {

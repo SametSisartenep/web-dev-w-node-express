@@ -54,16 +54,12 @@ app.use(bodyParser.urlencoded({
 
 app.use(require('cookie-parser')(credentials.cookieSecret));
 
-app.use(function ( req, res, next ) {
-  res.cookie('monster', 'nom nom');
-  res.cookie('signed_monster', 'nom nom', { signed: true });
-
-  next();
-});
-
 // Routes
 app.get('/', function ( req, res ) {
   res.render('home');
+
+  res.cookie('monster', 'nom nom');
+  res.cookie('signed_monster', 'nom nom', { signed: true });
 });
 
 app.get('/about', function ( req, res ) {
@@ -142,6 +138,7 @@ app.get('/info-cookie', function ( req, res ) {
   });
 
   console.log('Cookies: ' + JSON.stringify(req.cookies));
+  console.log('Signed Cookies: ' + JSON.stringify(req.signedCookies));
 });
 
 /**

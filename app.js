@@ -53,6 +53,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(require('cookie-parser')(credentials.cookieSecret));
+app.use(require('express-session')());
 
 // Routes
 app.get('/', function ( req, res ) {
@@ -60,6 +61,11 @@ app.get('/', function ( req, res ) {
 
   res.cookie('monster', 'nom nom');
   res.cookie('signed_monster', 'nom nom', { signed: true });
+
+  res.session.userName = 'Anonymous';
+  //var colorScheme = req.session.colorScheme || 'dark';
+  // Removing the 'session'
+  //delete req.session.colorScheme
 });
 
 app.get('/about', function ( req, res ) {
